@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+  </head>
+  <body>
+    <form class="py-10" action="payment"  method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">go</button>
+      </form>
+  </body>
+</html>
