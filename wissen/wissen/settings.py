@@ -126,13 +126,3 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-PAYTM_COMPANY_NAME = "Wissen"   # For representation purposes 
-PAYTM_INDUSTRY_TYPE_ID = "Retail"     # For staging environment
-PAYTM_CHANNEL_ID = "WEB"
-PAYTM_MERCHANT_KEY = "TgJPsQFkVH8Nop1&"
-PAYTM_MERCHANT_ID = "BtrEqg24117846393169"
-PAYTM_CALLBACK_URL = "http://localhost:8000/response/" # Hardcode
-PAYTM_WEBSITE = "WEBSTAGING"
-PAYTM_PAYMENT_GATEWAY_URL = "https://securegw-stage.paytm.in/order/process"
-PAYTM_TRANSACTION_STATUS_URL = "https://securegw-stage.paytm.in/order/status"
