@@ -17,23 +17,47 @@
                   <h1 class="mb-4 fw-bold">Register Here<br class="d-md-none d-xxl-block" /></h1>
                   <form action="" method="post">
                     {% csrf_token %}
+                    {% if RegistrationForm.non_field_errors %}
+                    <p>{{ RegistrationForm.non_field_errors }}</p>
+                    {% endif %}
                     <div class="container">
                         <div class="row">
                             <div class="col">{{ RegistrationForm.event }}</div>
+                            {% if RegistrationForm.event.errors %}
+                                {{ RegistrationForm.event.errors }}
+                            {% endif %}
                         </div>
                       <div class="row">
                         <div class="col">{{ RegistrationForm.name }}</div>
+                        {% if RegistrationForm.name.errors %}
+                            <p>{{ RegistrationForm.name.errors }}</p>
+                        {% endif %}
                         <div class="col">{{ RegistrationForm.email }}</div>
+                        {% if RegistrationForm.email.errors %}
+                            {{ RegistrationForm.email.errors }}
+                        {% endif %}
                       </div>
                       <br>
                       <div class="row">
                         <div class="col">{{ RegistrationForm.phone }}</div>
+                        {% if RegistrationForm.phone.errors %}
+                            {{ RegistrationForm.phone.errors }}
+                        {% endif %}
                         <div class="col">{{ RegistrationForm.registrationNo }}</div>
+                        {% if RegistrationForm.registrationNo.errors %}
+                            {{ RegistrationForm.registrationNo.errors }}
+                        {% endif %}
                       </div>
                       <br>
                       <div class="row">
                         <div class="col">{{ RegistrationForm.college }}</div>
+                        {% if RegistrationForm.college.errors %}
+                            {{ RegistrationForm.college.errors }}
+                        {% endif %}
                         <div class="col">{{ RegistrationForm.course }}</div>
+                        {% if RegistrationForm.course.errors %}
+                            {{ RegistrationForm.course.errors }}
+                        {% endif %}
                       </div>
                       <br>
                     </div>
@@ -52,4 +76,3 @@
   
 
 {% endblock %}
-
