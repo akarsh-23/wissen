@@ -17,9 +17,12 @@ def home(request):
 def event(request):
     subscriber_form = SubscriberForm()
     context = {
+        'media_url': settings.MEDIA_URL,
+        'upcomingevents': Event.objects.filter(status=True),
+        'pastevents': Event.objects.filter(status=False),
         'SubscriberForm': subscriber_form 
     }
-    return render(request, 'xevents.html', context)
+    return render(request, 'events.html', context)
 
 def contactFormView(request):
     if request.method == 'POST':

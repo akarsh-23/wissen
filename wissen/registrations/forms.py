@@ -14,13 +14,3 @@ class RegistrationForm(ModelForm):
             'college': forms.TextInput(attrs={'class': 'form-control','placeholder': 'College*'}),
             'course': forms.TextInput(attrs={'class': 'form-control','placeholder': 'Course*'}),
         }
-
-class EventForm(ModelForm):
-    class Meta:
-        model = Event
-        fields = ['event','status', 'image']
-        widgets = {
-            'event': forms.TextInput(attrs={'class': 'form-control','placeholder': 'Event*'}),
-            'status': forms.TextInput(attrs={'class': 'form-control','placeholder': 'Status*'}),
-            'image': forms.FileInput(attrs={'class': 'form-control','placeholder': 'Poster*'}),
-        }

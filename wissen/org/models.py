@@ -20,10 +20,11 @@ class Team(models.Model):
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
 class Event(models.Model):
-    name = models.CharField(max_length=30, blank=True)
-    description = models.CharField(max_length=255, blank=True)
+    name = models.CharField(max_length=30, primary_key=True)
+    description = models.CharField(max_length=255)
     image = models.FileField(upload_to='Event/')
     uploaded_at = models.DateTimeField(auto_now_add=True)
+    status = models.BooleanField()
 
 class Testimonial(models.Model):
     name = models.CharField(max_length=30)

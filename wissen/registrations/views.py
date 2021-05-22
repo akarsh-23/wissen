@@ -1,11 +1,12 @@
 from django.shortcuts import redirect, render
 from django.conf import settings
 from .forms import *
+from org import models
 
 
 def home(request):
     if request.method == "GET" and request.GET.get('Event'):
-        event = Event.objects.get(event=request.GET.get('Event'))
+        event = models.Event.objects.get(name=request.GET.get('Event'))
         if event:
             print(event.status)
             if event.status:

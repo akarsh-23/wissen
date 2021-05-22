@@ -9,8 +9,3 @@ class Registration(models.Model):
     registrationNo = models.BigIntegerField(blank=True)
     college = models.CharField(max_length=50)
     course = models.CharField(max_length=50)
-
-class Event(models.Model):
-    event = models.CharField(max_length=50, primary_key=True)
-    status = models.BooleanField()
-    image = models.FileField(upload_to='Events/')

@@ -3,14 +3,14 @@
 {% block content %}
 {% load static %}
 
-<section class="py-5 mt-6">
+<section class="py-0 mt-8 mb-4">
 
     <div id="Contact" class="container">
       <div class="row">
         <div class="col-12">
-          <div class="card mb-3 rounded-3">
+          <div class="card mb-3 bg-soft-danger">
             <div class="row g-0 align-items-center">
-              <div class="col-md-5 col-lg-6 text-md-center"><img class="img-fluid"
+              <div class="col-md-5 col-lg-6 text-md-center"><img style="box-shadow: 5px 1px 20px rgba(0, 0, 0, 0.459); border-radius: 10px;" class="img-fluid"
                 src="{{media_url}}{{image}}" alt="" /></div>
               <div class="col-md-7 col-lg-6 px-md-2 px-xl-6 text-center text-md-start">
                 <div class="card-body px-4 py-5 p-lg-3 p-md-4"><br>
@@ -19,6 +19,7 @@
                     {% csrf_token %}
                     <div class="container">
                         <div class="row">
+                          {{test}}
                             <div class="col">{{ RegistrationForm.event }}</div>
                         </div>
                       <div class="row">
@@ -42,12 +43,13 @@
                   <br>
                 </div>
               </div>
-              
             </div>
           </div>
         </div>
       </div>
     </div>
+    <br>
     <!-- end of .container-->
+  
 
 {% endblock %}
