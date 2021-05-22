@@ -1,11 +1,13 @@
-from django.shortcuts import render
-from django.http import HttpResponse,HttpResponseRedirect
-from .forms import ContactForm,SubscriberForm,TeamForm, EventForm, TestimonialForm
-from .models import Event, Team
 from django.conf import settings
-
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-# Create your views here.
+
+from .forms import (ContactForm, EventForm, SubscriberForm, TeamForm,
+                    TestimonialForm)
+from .models import Event, Team
+
+
 def home(request):
     contact_form = ContactForm()
     subscriber_form = SubscriberForm()
@@ -13,24 +15,11 @@ def home(request):
     return render(request, 'home.html', context)
 
 def event(request):
-    data = Event.objects.all()
-    media = settings.MEDIA_URL
     subscriber_form = SubscriberForm()
     context = {
-        'media': media,
-        'data': data,
         'SubscriberForm': subscriber_form 
     }
-    return render(request, 'events.html', context)
-
-def team(request):
-    data = Team.objects.all()
-    media = settings.MEDIA_URL
-    context = {
-        'media': media,
-        'data': data,
-    }
-    return render(request, 'Team.html', context)
+    return render(request, 'xevents.html', context)
 
 def contactFormView(request):
     if request.method == 'POST':
@@ -69,38 +58,77 @@ def thankYouView(request):
     context = {'SubscriberForm': subscriber_form }
     return render(request, 'thanks.html', context)
 
-def teamFormView(request):
-    if request.method == 'POST':
-        form = TeamForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('http://127.0.0.1:8000/')
-    else:
-        form = TeamForm()
-    return render(request, 'upload.html', {
-        'form': form
-    })
 
-def eventFormView(request):
-    if request.method == 'POST':
-        form = EventForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('http://127.0.0.1:8000/')
-    else:
-        form = EventForm()
-    return render(request, 'upload.html', {
-        'form': form
-    })
 
-def testimonialFormView(request):
-    if request.method == 'POST':
-        form = TestimonialForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('http://127.0.0.1:8000/')
-    else:
-        form = TestimonialForm()
-    return render(request, 'upload.html', {
-        'form': form
-    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def blog(request):
+#     return render(request, 'blog.html')
+
+
+# def teamFormView(request):
+#     if request.method == 'POST':
+#         form = TeamForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             form.save()
+#             return HttpResponseRedirect('http://127.0.0.1:8000/')
+#     else:
+#         form = TeamForm()
+#     return render(request, 'upload.html', {
+#         'form': form
+#     })
+
+# def eventFormView(request):
+#     if request.method == 'POST':
+#         form = EventForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             form.save()
+#             return HttpResponseRedirect('http://127.0.0.1:8000/')
+#     else:
+#         form = EventForm()
+#     return render(request, 'upload.html', {
+#         'form': form
+#     })
+
+# def testimonialFormView(request):
+#     if request.method == 'POST':
+#         form = TestimonialForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             form.save()
+#             return HttpResponseRedirect('http://127.0.0.1:8000/')
+#     else:
+#         form = TestimonialForm()
+#     return render(request, 'upload.html', {
+#         'form': form
+#     })
+
+# def team(request):
+#     data = Team.objects.all()
+#     media = settings.MEDIA_URL
+#     context = {
+#         'media': media,
+#         'data': data,
+#     }
+#     return render(request, 'Team.html', context)

@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
 class Contact(models.Model):
     name = models.CharField(max_length=30)
     email = models.EmailField(max_length=254)
@@ -9,13 +7,12 @@ class Contact(models.Model):
     subject = models.CharField(max_length=50)
     message = models.TextField(max_length=50)
 
-
 class Subscriber(models.Model):
-    email = models.EmailField(max_length=254)
+    email = models.EmailField(max_length=254, primary_key=True)
 
 class Team(models.Model):
     name = models.CharField(max_length=30)
-    email = models.EmailField(max_length=254)
+    email = models.EmailField(max_length=254, primary_key=True)
     phone = models.CharField(max_length=10)
     designation = models.CharField(max_length=30)
     description = models.CharField(max_length=255, blank=True)
@@ -30,7 +27,7 @@ class Event(models.Model):
 
 class Testimonial(models.Model):
     name = models.CharField(max_length=30)
-    email = models.EmailField(max_length=254)
+    email = models.EmailField(max_length=254, primary_key=True)
     phone = models.CharField(max_length=10)
     designation = models.CharField(max_length=30)
     description = models.CharField(max_length=255, blank=True)

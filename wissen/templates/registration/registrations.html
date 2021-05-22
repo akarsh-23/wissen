@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+
+<section class="py-5 mt-6">
+
+    <div id="Contact" class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="card mb-3 rounded-3">
+            <div class="row g-0 align-items-center">
+              <div class="col-md-5 col-lg-6 text-md-center"><img class="img-fluid"
+                src="{{media_url}}{{image}}" alt="" /></div>
+              <div class="col-md-7 col-lg-6 px-md-2 px-xl-6 text-center text-md-start">
+                <div class="card-body px-4 py-5 p-lg-3 p-md-4"><br>
+                  <h1 class="mb-4 fw-bold">Register Here<br class="d-md-none d-xxl-block" /></h1>
+                  <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">{{ RegistrationForm.event }}</div>
+                        </div>
+                      <div class="row">
+                        <div class="col">{{ RegistrationForm.name }}</div>
+                        <div class="col">{{ RegistrationForm.email }}</div>
+                      </div>
+                      <br>
+                      <div class="row">
+                        <div class="col">{{ RegistrationForm.phone }}</div>
+                        <div class="col">{{ RegistrationForm.registrationNo }}</div>
+                      </div>
+                      <br>
+                      <div class="row">
+                        <div class="col">{{ RegistrationForm.college }}</div>
+                        <div class="col">{{ RegistrationForm.course }}</div>
+                      </div>
+                      <br>
+                    </div>
+                    <input class="btn btn-lg btn-info rounded-pill" type="submit" value="Submit">
+                  </form>
+                  <br>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of .container-->
+
+{% endblock %}
