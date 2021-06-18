@@ -1,1 +1,2 @@
-web: gunicorn wissen.wissen.wsgi
+web: cd wissen
+python manage.py runserver 0.0.0.0:$PORT
