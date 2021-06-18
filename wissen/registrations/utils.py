@@ -1,0 +1,2 @@
+def createCertificate(request):
+    pass

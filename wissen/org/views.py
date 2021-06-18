@@ -11,21 +11,35 @@ from .models import Event, Team
 def home(request):
     contact_form = ContactForm()
     subscriber_form = SubscriberForm()
-    context = {'ContactForm': contact_form, 'SubscriberForm': subscriber_form }
+    context = {'ContactForm': contact_form,
+               'SubscriberForm': subscriber_form,
+              }
     return render(request, 'home.html', context)
 
 def event(request):
     try:
-        subscriber_form = SubscriberForm()
-        context = {
-            'media_url': settings.MEDIA_URL,
-            'upcomingevents': Event.objects.filter(status=True),
-            'pastevents': Event.objects.filter(status=False),
-            'SubscriberForm': subscriber_form 
-        }
-        return render(request, 'events.html', context)
+        if request.GET.get('Category'):
+            subscriber_form = SubscriberForm()
+            context = {
+                'media_url': settings.MEDIA_URL,
+                'upcomingevents': Event.objects.filter(status=True),
+                'pastevents': Event.objects.filter(status=False, category=request.GET.get('Category', None)),
+                'categories': Event.objects.values('category').distinct(),
+                'SubscriberForm': subscriber_form,
+            }
+            return render(request, 'events.html', context)
+        else:
+            subscriber_form = SubscriberForm()
+            context = {
+                'media_url': settings.MEDIA_URL,
+                'upcomingevents': Event.objects.filter(status=True),
+                'pastevents': Event.objects.filter(status=False), 
+                'categories': Event.objects.values('category').distinct(),
+                'SubscriberForm': subscriber_form,
+            }
+            return render(request, 'events.html', context)
     except:
-        return redirect('http://127.0.0.1:8000/')
+        return redirect('http://127.0.0.1:8000/?error=Something went worng!')
 
 def contactFormView(request):
     try:

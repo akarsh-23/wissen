@@ -5,7 +5,7 @@ class Contact(models.Model):
     email = models.EmailField(max_length=254)
     phone = models.CharField(max_length=10)
     subject = models.CharField(max_length=50)
-    message = models.TextField(max_length=50)
+    message = models.TextField(max_length=500)
 
 class Subscriber(models.Model):
     email = models.EmailField(max_length=254, primary_key=True)
@@ -20,9 +20,10 @@ class Team(models.Model):
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
 class Event(models.Model):
-    name = models.CharField(max_length=30, primary_key=True)
-    description = models.CharField(max_length=255)
+    name = models.CharField(max_length=100, primary_key=True)
+    description = models.TextField(max_length=1000)
     image = models.FileField(upload_to='Event/')
+    category = models.CharField(max_length=100)
     uploaded_at = models.DateTimeField(auto_now_add=True)
     status = models.BooleanField()
 

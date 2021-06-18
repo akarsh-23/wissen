@@ -40,7 +40,7 @@ class EventForm(forms.ModelForm):
         fields = ['name', 'description', 'image']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control','placeholder': 'Name'}),
-            'description': forms.TextInput(attrs={'class': 'form-control','placeholder': 'Name'}),
+            'description': forms.Textarea(attrs={'class': 'form-control','placeholder': 'Description'}),
             'image': forms.FileInput(attrs={'class': 'form-control','placeholder': 'Email'}),
         }
 

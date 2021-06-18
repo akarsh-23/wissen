@@ -74,7 +74,7 @@
               <li class="nav-item"><a class="nav-link fw-medium" href="http://127.0.0.1:8000/#About">About</a></li>
               <li class="nav-item"><a class="nav-link fw-medium" href="http://127.0.0.1:8000/#Services">Services</a></li>
               <li class="nav-item"><a class="nav-link fw-medium" href="http://127.0.0.1:8000/#Events">Events</a></li>
-<!--              <li class="nav-item"><a class="nav-link fw-medium" href="http://127.0.0.1:8000/#Team">Team</a></li>      -->
+              <li class="nav-item"><a class="nav-link fw-medium" href="http://127.0.0.1:8000/#Team">Team</a></li>
               <li class="nav-item"><a class="nav-link fw-medium" href="http://127.0.0.1:8000/#Contact">Contact</a></li>
             </ul>
             <form class="d-flex py-3 py-lg-0"><a class="btn btn-light rounded-pill shadow fw-bold" href="#Subscribe   " role="button">Subscribe
@@ -199,6 +199,11 @@
         <script src="{% static 'assets/js/theme.js' %}"></script>
         <script src="{% static 'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js' %}"></script>
         <script src="{% static 'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js' %}"></script>
+        {% if Error %}
+        <script>
+          alert("{{Error}}")
+        </script>
+        {% endif %}
     
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,700;1,900&amp;display=swap" rel="stylesheet">
       </body>

@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render
 from django.conf import settings
 from .forms import *
 from org import models
+from .utils import *
 
 
 def home(request):
@@ -43,3 +44,16 @@ def home(request):
                 return render(request, 'registration/posterror.html', context=context)
     except:
         return redirect('http://127.0.0.1:8000/Events')
+
+def certificate(request):
+    try:
+        if request.method == "POST": 
+            try:
+                response = createCertificate(request)
+                return response
+            except:
+                return redirect('/NotRegistered')
+        else:
+            return render(request, 'registration/certificate.html')
+    except:
+        return
