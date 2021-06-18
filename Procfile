@@ -1,1 +1,1 @@
-web: gunicorn wissen.wissen.wsgi
+web: gunicorn wissen.wissen.wsgi.py
