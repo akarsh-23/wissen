@@ -33,7 +33,7 @@ def home(request):
             if registrationForm.is_valid():
                 newresponse = registrationForm.save()
                 newresponse.save()
-                return redirect('http://127.0.0.1:8000/ThankYou')
+                return redirect('../ThankYou')
             else:
                 registrationForm = RegistrationForm(request.POST)
                 context = {
@@ -43,7 +43,7 @@ def home(request):
                 }
                 return render(request, 'registration/posterror.html', context=context)
     except:
-        return redirect('http://127.0.0.1:8000/Events')
+        return redirect('../Events')
 
 def certificate(request):
     try:
